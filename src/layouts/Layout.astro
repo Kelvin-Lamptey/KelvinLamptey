@@ -1,12 +1,36 @@
 ---
 import "../styles/global.css"
+
+export interface Props {
+  title?: string
+  description?: string
+}
+
+const {
+  title = "Kelvin N.O. Lamptey | CTO & Systems Engineer",
+  description = "I build scalable, high-impact systems for African tech ecosystems — from cloud platforms and hosting infrastructure to educational tools that democratize learning.",
+} = Astro.props as Props
+const url = new URL(Astro.url)
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Kelvin Lamptey</title>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={url} />
+    <meta property="og:image" content="https://kelvinlamptey.com/og-image.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://kelvinlamptey.com/og-image.png" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

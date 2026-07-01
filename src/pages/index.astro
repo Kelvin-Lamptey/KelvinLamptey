@@ -11,7 +11,10 @@ const projects = (await getCollection("projects"))
   .sort((a, b) => a.data.order - b.data.order)
 ---
 
-<Layout>
+<Layout
+  title="Kelvin N.O. Lamptey | CTO & Systems Engineer"
+  description="I build scalable, high-impact systems for African tech ecosystems — from cloud platforms and hosting infrastructure to educational tools that democratize learning."
+>
   <Navbar client:load />
 
   <main>
