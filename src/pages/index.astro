@@ -1,10 +1,77 @@
 ---
 import Layout from "../layouts/Layout.astro"
+import Navbar from "../components/Navbar.vue"
+import Footer from "../components/Footer.vue"
+import ProjectCard from "../components/ProjectCard.vue"
+import ContactForm from "../components/ContactForm.vue"
+import { getCollection } from "astro:content"
+
+const projects = (await getCollection("projects"))
+  .filter((p) => p.data.featured)
+  .sort((a, b) => a.data.order - b.data.order)
 ---
 
 <Layout>
-  <main class="mx-auto max-w-3xl px-4 py-12">
-    <h1 class="text-3xl font-bold">Kelvin Lamptey</h1>
-    <p class="mt-2 text-zinc-600">Portfolio coming soon.</p>
+  <Navbar client:load />
+
+  <main>
+    <section id="home" class="mx-auto max-w-5xl px-6 pt-28 pb-20 sm:pt-36 sm:pb-28">
+      <h1 class="text-2xl font-bold text-text-secondary sm:text-3xl">
+        Kelvin N.O. Lamptey
+      </h1>
+      <p class="mt-3 text-md font-semibold text-text-inverse">
+        Software Engineer, Yango STEM Fellow &amp; CTO @ KENOL Tech
+      </p>
+      <p class="mt-5 max-w-2xl text-sm leading-relaxed text-text-primary">
+        I build scalable, high-impact systems for African tech ecosystems — from
+        cloud platforms and hosting infrastructure to educational tools that
+        democratize learning. My work bridges full-stack engineering, DevOps,
+        and product strategy to ship production-grade solutions that solve real
+        problems.
+      </p>
+    </section>
+
+    <section id="projects" class="bg-black/[.02] py-20 sm:py-24">
+      <div class="mx-auto max-w-5xl px-6">
+        <h2 class="text-xl font-bold text-text-secondary">
+          Featured Systems
+        </h2>
+        <div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
+          {projects.map((p) => (
+            <ProjectCard
+              title={p.data.title}
+              description={p.data.description}
+              techStack={p.data.techStack}
+              githubUrl={p.data.githubUrl}
+              liveUrl={p.data.liveUrl}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="mx-auto max-w-5xl px-6 py-20 sm:py-24">
+      <h2 class="text-xl font-bold text-text-secondary">About Me</h2>
+      <p class="mt-5 max-w-3xl text-sm leading-relaxed text-text-primary">
+        I am a Computer Science student at the University of Ghana and Co-founder
+        of KENOL Tech, where I lead engineering across cloud infrastructure, web
+        platforms, and open-source tooling. As a Yango STEM Fellow, I am deeply
+        invested in leveraging technology to build resilient, scalable solutions
+        that address Africa's unique infrastructure and education challenges.
+        My work spans the full stack — from orchestrating Docker containers and
+        managing PostgreSQL clusters to crafting intuitive Vue.js frontends.
+      </p>
+    </section>
+
+    <section id="contact" class="bg-black/[.02] py-20 sm:py-24">
+      <div class="mx-auto max-w-5xl px-6">
+        <h2 class="text-xl font-bold text-text-secondary">Get In Touch</h2>
+        <div class="mt-8 max-w-lg">
+          <ContactForm client:idle />
+        </div>
+      </div>
+    </section>
   </main>
+
+  <Footer />
 </Layout>
