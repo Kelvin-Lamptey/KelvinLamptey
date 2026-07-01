@@ -1,11 +1,12 @@
 ---
 title: "StudyHubExperts"
-description: "A full-stack online educational platform featuring a tutor-to-student marketplace and an interactive algorithm visualizer."
+description: "An online educational platform featuring a tutor-to-student marketplace and algorithm visualizer."
 techStack:
+  - Python
+  - Django
   - Node.js
   - Vue.js
-  - TypeScript
-liveUrl: "https://studyhubexperts.com"
+  - HTMX
 featured: true
-order: 2
+order: 1
 ---

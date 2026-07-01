@@ -5,6 +5,7 @@ defineProps({
   title: String,
   description: String,
   techStack: Array,
+  image: String,
   githubUrl: String,
   liveUrl: String,
 })
@@ -12,8 +13,15 @@ defineProps({
 
 <template>
   <article
-    class="flex flex-col rounded-xs bg-surface-muted p-7 shadow-sm ring-1 ring-black/5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
+    class="flex flex-col rounded-xs bg-surface-muted shadow-sm ring-1 ring-black/5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
   >
+    <img
+      v-if="image"
+      :src="image"
+      :alt="title"
+      class="h-48 w-full rounded-t-xs object-cover"
+    />
+    <div class="flex flex-1 flex-col p-7">
     <h3 class="text-lg font-semibold text-text-secondary">
       {{ title }}
     </h3>
@@ -50,6 +58,7 @@ defineProps({
         <ExternalLink :size="18" />
         Live Demo
       </a>
+    </div>
     </div>
   </article>
 </template>
