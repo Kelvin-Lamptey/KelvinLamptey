@@ -7,7 +7,6 @@ import ContactForm from "../components/ContactForm.vue"
 import { getCollection } from "astro:content"
 
 const projects = (await getCollection("projects"))
-  .filter((p) => p.data.featured)
   .sort((a, b) => a.data.order - b.data.order)
 ---
 
@@ -22,7 +21,7 @@ const projects = (await getCollection("projects"))
       <div class="flex flex-col items-center gap-10 sm:flex-row sm:items-start">
         <img
           src="/images/hero-typing.jpg"
-          alt="Kelvin typing on laptop"
+          alt="Kelvin N.O. Lamptey"
           class="h-48 w-48 rounded-xs object-cover shadow-md sm:h-56 sm:w-56"
         />
         <div>

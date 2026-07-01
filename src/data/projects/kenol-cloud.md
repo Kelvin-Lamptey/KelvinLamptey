@@ -7,6 +7,6 @@ techStack:
   - Vue.js
   - PostgreSQL
 liveUrl: "https://kenol.cloud"
-featured: false
-order: 4
+featured: true
+order: 1
 ---

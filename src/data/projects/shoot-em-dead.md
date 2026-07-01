@@ -4,6 +4,7 @@ description: "A high-octane top-down space shooter game built for fluid mechanic
 techStack:
   - Processing
   - Java
-featured: true
-order: 3
+githubUrl: "https://github.com/Kelvin-Lamptey/Shoot-em-dead"
+featured: false
+order: 5
 ---

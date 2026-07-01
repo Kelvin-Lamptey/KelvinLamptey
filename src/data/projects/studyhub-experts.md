@@ -7,6 +7,7 @@ techStack:
   - Node.js
   - Vue.js
   - HTMX
+liveUrl: "https://studyhubexperts.com"
 featured: true
-order: 1
+order: 2
 ---

@@ -8,6 +8,7 @@ techStack:
   - TypeScript
   - Bun.js
   - Express
+githubUrl: "https://github.com/kenoltechcompany/Shinaa"
 featured: true
-order: 2
+order: 3
 ---

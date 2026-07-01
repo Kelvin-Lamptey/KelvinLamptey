@@ -2,7 +2,7 @@
 import { ref } from "vue"
 import { SendHorizontal } from "lucide-vue-next"
 
-const accessKey = "YOUR_ACCESS_KEY_HERE"
+const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY
 const name = ref("")
 const email = ref("")
 const message = ref("")
