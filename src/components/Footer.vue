@@ -14,7 +14,7 @@ import { Github, Linkedin, Twitter, Instagram } from "lucide-vue-next"
       </p>
       <div class="flex items-center gap-5">
         <a
-          href="https://github.com/kelvinlamptey"
+          href="https://github.com/kelvin-lamptey"
           target="_blank"
           rel="noopener noreferrer"
           class="text-text-primary transition-colors hover:text-text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse"
@@ -23,7 +23,7 @@ import { Github, Linkedin, Twitter, Instagram } from "lucide-vue-next"
           <Github :size="20" />
         </a>
         <a
-          href="https://linkedin.com/in/kelvinlamptey"
+          href="https://linkedin.com/in/kelvin-lamptey"
           target="_blank"
           rel="noopener noreferrer"
           class="text-text-primary transition-colors hover:text-text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse"
@@ -32,7 +32,7 @@ import { Github, Linkedin, Twitter, Instagram } from "lucide-vue-next"
           <Linkedin :size="20" />
         </a>
         <a
-          href="https://twitter.com/kelvinlamptey"
+          href="https://twitter.com/kelvinolamptey"
           target="_blank"
           rel="noopener noreferrer"
           class="text-text-primary transition-colors hover:text-text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse"
@@ -41,7 +41,7 @@ import { Github, Linkedin, Twitter, Instagram } from "lucide-vue-next"
           <Twitter :size="20" />
         </a>
         <a
-          href="https://instagram.com/kelvinlamptey"
+          href="https://instagram.com/kelvinodarteylamptey"
           target="_blank"
           rel="noopener noreferrer"
           class="text-text-primary transition-colors hover:text-text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse"
