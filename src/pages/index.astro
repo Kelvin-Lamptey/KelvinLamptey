@@ -5,6 +5,7 @@ import Footer from "../components/Footer.vue"
 import ProjectCard from "../components/ProjectCard.vue"
 import ContactForm from "../components/ContactForm.vue"
 import { getCollection } from "astro:content"
+import { Image } from "astro:assets"
 
 const projects = (await getCollection("projects"))
   .sort((a, b) => a.data.order - b.data.order)
@@ -56,7 +57,7 @@ const structuredData = [
             rel="noopener noreferrer"
             class="inline-flex items-center justify-center gap-3 rounded-xs bg-text-inverse px-6 py-3 text-sm font-bold text-surface-muted shadow-sm transition-colors hover:bg-surface-raised focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse"
           >
-            <img src="https://api.iconify.design/mdi/linkedin.svg?color=%23ffffff" alt="" aria-hidden="true" class="h-5 w-5" />
+            <Image src="https://api.iconify.design/mdi/linkedin.svg?color=%23ffffff" alt="" aria-hidden="true" width={20} height={20} />
             Connect with me on LinkedIn
           </a>
           <a
@@ -65,7 +66,7 @@ const structuredData = [
             rel="noopener noreferrer"
             class="group inline-flex items-center justify-center gap-3 rounded-xs border-2 border-text-inverse px-6 py-[11px] text-sm font-bold text-text-inverse transition-colors hover:bg-text-inverse hover:text-surface-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse"
           >
-            <img src="https://cdn.simpleicons.org/whatsapp/2259ec" alt="" aria-hidden="true" class="h-5 w-5 group-hover:brightness-0 group-hover:invert" />
+            <Image src="https://cdn.simpleicons.org/whatsapp/2259ec" alt="" aria-hidden="true" width={20} height={20} class="group-hover:brightness-0 group-hover:invert" />
             Chat with me on WhatsApp
           </a>
         </div>
@@ -73,9 +74,12 @@ const structuredData = [
       <div class="relative order-1 lg:order-2 hero-reveal hero-reveal--media">
         <div class="absolute -inset-3 -z-10 translate-x-3 translate-y-3 rounded-xs bg-text-inverse/10 sm:-inset-4 sm:translate-x-5 sm:translate-y-5" aria-hidden="true"></div>
         <figure class="relative overflow-hidden rounded-xs bg-black/[.04] shadow-xl">
-          <img
+          <Image
             src="/images/hero-typing.jpg"
             alt="Kelvin N.O. Lamptey working at a computer"
+            width={1200}
+            height={1400}
+            format="webp"
             class="h-[min(78vw,620px)] w-full object-cover object-[center_42%] transition-transform duration-700 ease-out hover:scale-[1.02] sm:h-[min(70vw,680px)] lg:h-[min(78vh,680px)]"
           />
           <figcaption class="absolute bottom-0 left-0 right-0 bg-text-secondary/90 px-5 py-4 text-sm font-semibold text-surface-muted backdrop-blur-sm">
@@ -97,7 +101,7 @@ const structuredData = [
         {techStacks.map((tech) => (
           <div class="group tech-stack-card flex min-h-24 items-center gap-4 rounded-xs border border-black/10 bg-surface-muted px-4 py-4 shadow-sm transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-md">
             {techStackIcons[tech] ? (
-              <img src={techStackIcons[tech].startsWith("http") ? techStackIcons[tech] : `https://cdn.simpleicons.org/${techStackIcons[tech]}/2259ec`} alt="" aria-hidden="true" class="h-8 w-8 shrink-0 transition-transform duration-300 ease-out group-hover:scale-110 group-hover:-rotate-3" />
+              <Image src={techStackIcons[tech].startsWith("http") ? techStackIcons[tech] : `https://cdn.simpleicons.org/${techStackIcons[tech]}/2259ec`} alt="" aria-hidden="true" width={32} height={32} class="h-8 w-8 shrink-0 transition-transform duration-300 ease-out group-hover:scale-110 group-hover:-rotate-3" />
             ) : (
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-text-inverse/10 text-sm font-bold text-text-inverse" aria-hidden="true">{tech.charAt(0)}</span>
             )}
@@ -149,19 +153,28 @@ const structuredData = [
         helpful.
       </p>
       <div class="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-3">
-        <img
+        <Image
           src="/images/yango-award.jpg"
           alt="Receiving award at Yango STEM Fellowship"
+          width={800}
+          height={600}
+          format="webp"
           class="h-56 w-full rounded-xs object-cover shadow-sm"
         />
-        <img
+        <Image
           src="/images/event-google-accra.jpg"
           alt="Speaking at a gathering"
+          width={800}
+          height={600}
+          format="webp"
           class="h-56 w-full rounded-xs object-cover shadow-sm"
         />
-        <img
+        <Image
           src="/images/formal-standing.jpg"
           alt="Formal professional portrait"
+          width={800}
+          height={600}
+          format="webp"
           class="h-56 w-full rounded-xs object-cover shadow-sm"
         />
       </div>

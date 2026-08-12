@@ -5,6 +5,9 @@ import sitemap from "@astrojs/sitemap"
 
 export default defineConfig({
   site: "https://kelvinlamptey.com",
+  image: {
+    domains: ["api.iconify.design", "cdn.simpleicons.org"],
+  },
   vite: {
     plugins: [tailwindcss()],
   },
