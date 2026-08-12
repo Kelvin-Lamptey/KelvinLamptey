@@ -7,6 +7,12 @@ techStack:
   - Vue.js
   - PostgreSQL
 liveUrl: "https://kenol.cloud"
+challenge: "Provide an accessible cloud platform for deploying applications, registering domains, and scaling infrastructure in an African context."
+solution: "KENOL Cloud presents a unified platform for application deployment, domain registration, and infrastructure management with simple pricing."
+capabilities:
+  - Frontend and backend application deployment
+  - Domain registration
+  - Infrastructure scaling
 featured: true
-order: 1
+order: 2
 ---
