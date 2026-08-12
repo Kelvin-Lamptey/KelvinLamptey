@@ -19,6 +19,39 @@ function toggleMenu() {
 function closeMenu() {
   isMenuOpen.value = false
 }
+
+function handleNavClick(event, href) {
+  const [path, hash] = href.split("#")
+  const isCurrentPage = !path || path === window.location.pathname
+  const target = hash ? document.getElementById(hash) : null
+
+  if (!hash || !isCurrentPage || !target) {
+    closeMenu()
+    return
+  }
+
+  event.preventDefault()
+  closeMenu()
+
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches
+
+  target.classList.remove("nav-section-focus")
+  requestAnimationFrame(() => {
+    target.scrollIntoView({
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+      block: "start",
+    })
+
+    if (!prefersReducedMotion) {
+      target.classList.add("nav-section-focus")
+      window.setTimeout(() => target.classList.remove("nav-section-focus"), 900)
+    }
+  })
+
+  window.history.replaceState(null, "", `#${hash}`)
+}
 </script>
 
 <template>
@@ -48,6 +81,7 @@ function closeMenu() {
           <a
             :href="link.href"
             class="text-sm font-medium text-text-primary transition-colors hover:text-text-secondary"
+            @click="handleNavClick($event, link.href)"
           >
             {{ link.label }}
           </a>
@@ -63,7 +97,7 @@ function closeMenu() {
           <a
             :href="link.href"
             class="block text-sm font-medium text-text-primary transition-colors hover:text-text-secondary"
-            @click="closeMenu"
+            @click="handleNavClick($event, link.href)"
           >
             {{ link.label }}
           </a>
