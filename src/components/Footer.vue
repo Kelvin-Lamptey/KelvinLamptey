@@ -1,18 +1,16 @@
 <script setup>
-import { Github, Linkedin, Twitter, Instagram } from "lucide-vue-next"
+import { Facebook, Github, Instagram, Linkedin, MessageCircle, Music2, Twitter, Youtube } from "lucide-vue-next"
 </script>
 
 <template>
   <footer
     class="border-t border-black/5 bg-surface-muted"
   >
-    <div
-      class="mx-auto flex max-w-5xl flex-col items-center gap-5 px-6 py-8 sm:flex-row sm:justify-between"
-    >
+    <div class="mx-auto flex max-w-5xl flex-col items-center gap-5 px-6 py-8 sm:flex-row sm:justify-between">
       <p class="text-center text-sm text-text-primary sm:text-left">
         &copy; 2026 Kelvin Nii Odartey Lamptey
       </p>
-      <div class="flex items-center gap-5">
+      <div class="flex flex-wrap items-center justify-center gap-4 sm:justify-end">
         <a href="/sitemap/" class="text-sm font-medium text-text-primary transition-colors hover:text-text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse">Sitemap</a>
         <a
           href="https://github.com/kelvin-lamptey"
@@ -33,7 +31,7 @@ import { Github, Linkedin, Twitter, Instagram } from "lucide-vue-next"
           <Linkedin :size="20" />
         </a>
         <a
-          href="https://twitter.com/kelvinolamptey"
+          href="https://x.com/kelvinolamptey"
           target="_blank"
           rel="noopener noreferrer"
           class="text-text-primary transition-colors hover:text-text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse"
@@ -49,6 +47,60 @@ import { Github, Linkedin, Twitter, Instagram } from "lucide-vue-next"
           aria-label="Instagram"
         >
           <Instagram :size="20" />
+        </a>
+        <a
+          href="https://www.youtube.com/@kelvin-lamptey"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-text-primary transition-colors hover:text-text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse"
+          aria-label="YouTube"
+        >
+          <Youtube :size="20" />
+        </a>
+        <a
+          href="https://www.trendshub.live/kelvinlamptey"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-sm font-bold text-text-primary transition-colors hover:text-text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse"
+          aria-label="Trendshub"
+        >
+          T
+        </a>
+        <a
+          href="https://www.tiktok.com/@kelvinodarteylamptey"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-text-primary transition-colors hover:text-text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse"
+          aria-label="TikTok"
+        >
+          <Music2 :size="20" />
+        </a>
+        <a
+          href="https://www.facebook.com/kelvinniilamptey7"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-text-primary transition-colors hover:text-text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse"
+          aria-label="Facebook"
+        >
+          <Facebook :size="20" />
+        </a>
+        <a
+          href="https://www.threads.net/@kelvinodarteylamptey"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-sm font-bold text-text-primary transition-colors hover:text-text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse"
+          aria-label="Threads"
+        >
+          @
+        </a>
+        <a
+          href="https://wa.me/kelvinlamptey"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-text-primary transition-colors hover:text-text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse"
+          aria-label="WhatsApp"
+        >
+          <MessageCircle :size="20" />
         </a>
       </div>
     </div>
