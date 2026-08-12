@@ -90,7 +90,11 @@ onMounted(() => {
         class="inline-flex items-center gap-2 text-lg font-bold text-text-secondary transition-colors hover:text-text-inverse"
         @click="closeMenu"
       >
-        <img src="/favicon.svg" alt="" aria-hidden="true" class="h-8 w-8" />
+        <svg viewBox="0 0 64 64" class="h-8 w-8" role="img" aria-label="KL logo">
+          <rect x="4" y="4" width="56" height="56" rx="6" fill="white" stroke="#dce5ff" stroke-width="0.5" />
+          <text x="32" y="47" text-anchor="middle" fill="#0b36a8" opacity="0.32" transform="translate(0 1.5)" font-family="'Open Sans', Arial, sans-serif" font-size="43" font-weight="700" letter-spacing="-1">KL</text>
+          <text x="32" y="47" text-anchor="middle" fill="#2259ec" font-family="'Open Sans', Arial, sans-serif" font-size="43" font-weight="700" letter-spacing="-1">KL</text>
+        </svg>
         Kelvin Lamptey
       </a>
       <button

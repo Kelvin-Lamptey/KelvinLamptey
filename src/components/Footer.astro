@@ -1,0 +1,31 @@
+---
+import { Image } from "astro:assets"
+
+const icons = [
+  ["GitHub", "https://cdn.simpleicons.org/github/4d5055", "https://github.com/kelvin-lamptey"],
+  ["LinkedIn", "https://api.iconify.design/mdi/linkedin.svg?color=%234d5055", "https://linkedin.com/in/kelvin-lamptey"],
+  ["X (Twitter)", "https://cdn.simpleicons.org/x/4d5055", "https://x.com/kelvinolamptey"],
+  ["Instagram", "https://cdn.simpleicons.org/instagram/4d5055", "https://instagram.com/kelvinodarteylamptey"],
+  ["YouTube", "https://cdn.simpleicons.org/youtube/4d5055", "https://www.youtube.com/@kelvin-lamptey"],
+  ["TikTok", "https://cdn.simpleicons.org/tiktok/4d5055", "https://www.tiktok.com/@kelvinodarteylamptey"],
+  ["Facebook", "https://cdn.simpleicons.org/facebook/4d5055", "https://www.facebook.com/kelvinniilamptey7"],
+  ["WhatsApp", "https://cdn.simpleicons.org/whatsapp/4d5055", "https://wa.me/kelvinlamptey"],
+  ["Telegram", "https://cdn.simpleicons.org/telegram/4d5055", "https://t.me/kelvinlamptey"],
+]
+---
+
+<footer class="border-t border-black/5 bg-surface-muted">
+  <div class="mx-auto flex max-w-5xl flex-col items-center gap-5 px-6 py-8 sm:flex-row sm:justify-between">
+    <p class="text-center text-sm text-text-primary sm:text-left">&copy; 2026 Kelvin Nii Odartey Lamptey</p>
+    <div class="flex flex-wrap items-center justify-center gap-4 sm:justify-end">
+      <a href="/sitemap/" class="text-sm font-medium text-text-primary transition-colors hover:text-text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse">Sitemap</a>
+      {icons.map(([label, src, href]) => (
+        <a href={href} target="_blank" rel="noopener noreferrer" class="text-text-primary transition-colors hover:text-text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse" aria-label={label}>
+          <Image src={src} alt="" aria-hidden="true" width={20} height={20} />
+        </a>
+      ))}
+      <a href="https://www.trendshub.live/kelvinlamptey" target="_blank" rel="noopener noreferrer" class="text-sm font-bold text-text-primary transition-colors hover:text-text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse" aria-label="Trendshub">T</a>
+      <a href="https://www.threads.net/@kelvinodarteylamptey" target="_blank" rel="noopener noreferrer" class="text-sm font-bold text-text-primary transition-colors hover:text-text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse" aria-label="Threads"><span class="text-base font-bold leading-none" aria-hidden="true">T</span></a>
+    </div>
+  </div>
+</footer>

@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro"
 import Navbar from "../components/Navbar.vue"
-import Footer from "../components/Footer.vue"
+import Footer from "../components/Footer.astro"
 import ProjectCard from "../components/ProjectCard.vue"
 import ContactForm from "../components/ContactForm.vue"
 import { getCollection } from "astro:content"
@@ -123,7 +123,6 @@ const structuredData = [
               title={p.data.title}
               description={p.data.description}
               techStack={p.data.techStack}
-              image={p.data.image}
               projectUrl={`/projects/${p.id}/`}
               githubUrl={p.data.githubUrl}
               liveUrl={p.data.liveUrl}

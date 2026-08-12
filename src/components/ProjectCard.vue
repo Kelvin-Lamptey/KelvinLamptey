@@ -27,7 +27,6 @@ defineProps({
   title: String,
   description: String,
   techStack: Array,
-  image: String,
   projectUrl: String,
   githubUrl: String,
   liveUrl: String,
@@ -39,12 +38,6 @@ defineProps({
     ref="card"
     class="group reveal-on-scroll flex flex-col overflow-hidden rounded-xs bg-surface-muted shadow-sm ring-1 ring-black/5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
   >
-    <img
-      v-if="image"
-      :src="image"
-      :alt="title"
-      class="h-48 w-full rounded-t-xs object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
-    />
     <div class="flex flex-1 flex-col p-7">
     <h3 class="text-lg font-semibold text-text-secondary">
       <a v-if="projectUrl" :href="projectUrl" class="transition-colors hover:text-text-inverse focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse">{{ title }}</a>

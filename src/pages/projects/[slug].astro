@@ -2,7 +2,7 @@
 import { getCollection, type CollectionEntry } from "astro:content"
 import Layout from "../../layouts/Layout.astro"
 import Navbar from "../../components/Navbar.vue"
-import Footer from "../../components/Footer.vue"
+import Footer from "../../components/Footer.astro"
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects")
