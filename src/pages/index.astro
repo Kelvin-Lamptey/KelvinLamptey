@@ -34,22 +34,22 @@ const structuredData = [
 
   <main>
     <section id="home" class="mx-auto grid min-h-[calc(100svh-73px)] max-w-6xl items-center gap-12 px-6 py-14 sm:py-20 lg:grid-cols-[minmax(0,0.9fr)_minmax(360px,1.1fr)] lg:gap-16 lg:py-16">
-      <div class="order-2 lg:order-1">
-        <p class="text-sm font-bold uppercase tracking-[0.18em] text-text-inverse">Software engineer · Accra, Ghana</p>
-        <h1 class="mt-5 max-w-3xl text-4xl font-bold leading-[1.05] tracking-[-0.03em] text-text-secondary sm:text-5xl lg:text-6xl">
+      <div class="order-2 lg:order-1 hero-reveal">
+        <p class="hero-reveal-item text-sm font-bold uppercase tracking-[0.18em] text-text-inverse">Software engineer · Accra, Ghana</p>
+        <h1 class="hero-reveal-item hero-reveal-item--1 mt-5 max-w-3xl text-4xl font-bold leading-[1.05] tracking-[-0.03em] text-text-secondary sm:text-5xl lg:text-6xl">
           Kelvin N.O. Lamptey
         </h1>
-        <p class="mt-6 max-w-xl text-lg font-semibold leading-snug text-text-inverse sm:text-xl">
+        <p class="hero-reveal-item hero-reveal-item--2 mt-6 max-w-xl text-lg font-semibold leading-snug text-text-inverse sm:text-xl">
           Yango STEM Fellow &amp; CTO @ KENOL Tech
         </p>
-        <p class="mt-6 max-w-xl text-base leading-relaxed text-text-primary sm:text-lg">
+        <p class="hero-reveal-item hero-reveal-item--3 mt-6 max-w-xl text-base leading-relaxed text-text-primary sm:text-lg">
           I build scalable, high-impact systems for African tech ecosystems, from
           cloud platforms and hosting infrastructure to educational tools that
           democratize learning. My work bridges full-stack engineering, DevOps,
           and product strategy to ship production-grade solutions that solve real
           problems.
         </p>
-        <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+        <div class="hero-reveal-item hero-reveal-item--4 mt-9 flex flex-col gap-3 sm:flex-row">
           <a
             href="https://www.linkedin.com/in/kelvin-lamptey"
             target="_blank"
@@ -70,13 +70,13 @@ const structuredData = [
           </a>
         </div>
       </div>
-      <div class="relative order-1 lg:order-2">
+      <div class="relative order-1 lg:order-2 hero-reveal hero-reveal--media">
         <div class="absolute -inset-3 -z-10 translate-x-3 translate-y-3 rounded-xs bg-text-inverse/10 sm:-inset-4 sm:translate-x-5 sm:translate-y-5" aria-hidden="true"></div>
         <figure class="relative overflow-hidden rounded-xs bg-black/[.04] shadow-xl">
           <img
             src="/images/hero-typing.jpg"
             alt="Kelvin N.O. Lamptey working at a computer"
-            class="h-[min(78vw,620px)] w-full object-cover object-[center_42%] sm:h-[min(70vw,680px)] lg:h-[min(78vh,680px)]"
+            class="h-[min(78vw,620px)] w-full object-cover object-[center_42%] transition-transform duration-700 ease-out hover:scale-[1.02] sm:h-[min(70vw,680px)] lg:h-[min(78vh,680px)]"
           />
           <figcaption class="absolute bottom-0 left-0 right-0 bg-text-secondary/90 px-5 py-4 text-sm font-semibold text-surface-muted backdrop-blur-sm">
             Building useful technology for Africa
@@ -95,9 +95,9 @@ const structuredData = [
       </div>
       <div class="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
         {techStacks.map((tech) => (
-          <div class="flex min-h-24 items-center gap-4 rounded-xs border border-black/10 bg-surface-muted px-4 py-4 shadow-sm transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-md">
+          <div class="group tech-stack-card flex min-h-24 items-center gap-4 rounded-xs border border-black/10 bg-surface-muted px-4 py-4 shadow-sm transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-md">
             {techStackIcons[tech] ? (
-              <img src={techStackIcons[tech].startsWith("http") ? techStackIcons[tech] : `https://cdn.simpleicons.org/${techStackIcons[tech]}/2259ec`} alt="" aria-hidden="true" class="h-8 w-8 shrink-0" />
+              <img src={techStackIcons[tech].startsWith("http") ? techStackIcons[tech] : `https://cdn.simpleicons.org/${techStackIcons[tech]}/2259ec`} alt="" aria-hidden="true" class="h-8 w-8 shrink-0 transition-transform duration-300 ease-out group-hover:scale-110 group-hover:-rotate-3" />
             ) : (
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-text-inverse/10 text-sm font-bold text-text-inverse" aria-hidden="true">{tech.charAt(0)}</span>
             )}
@@ -115,6 +115,7 @@ const structuredData = [
         <div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
           {projects.map((p) => (
             <ProjectCard
+              client:visible
               title={p.data.title}
               description={p.data.description}
               techStack={p.data.techStack}

@@ -1,8 +1,9 @@
 <script setup>
-import { ref } from "vue"
+import { onMounted, ref } from "vue"
 import { Menu, X } from "lucide-vue-next"
 
 const isMenuOpen = ref(false)
+const activeSection = ref("home")
 
 const links = [
   { label: "Home", href: "/" },
@@ -18,6 +19,10 @@ function toggleMenu() {
 
 function closeMenu() {
   isMenuOpen.value = false
+}
+
+function getLinkTarget(href) {
+  return href.includes("#") ? href.split("#")[1] : "home"
 }
 
 function handleNavClick(event, href) {
@@ -52,6 +57,27 @@ function handleNavClick(event, href) {
 
   window.history.replaceState(null, "", `#${hash}`)
 }
+
+onMounted(() => {
+  const sections = ["home", "tech-stacks", "projects", "about", "contact"]
+    .map((id) => document.getElementById(id))
+    .filter(Boolean)
+
+  if (!("IntersectionObserver" in window)) return
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)
+
+      if (visible[0]) activeSection.value = visible[0].target.id
+    },
+    { rootMargin: "-18% 0px -68%", threshold: 0 },
+  )
+
+  sections.forEach((section) => observer.observe(section))
+})
 </script>
 
 <template>
@@ -80,7 +106,10 @@ function handleNavClick(event, href) {
         <li v-for="link in links" :key="link.href">
           <a
             :href="link.href"
-            class="text-sm font-medium text-text-primary transition-colors hover:text-text-secondary"
+            :class="[
+              'nav-link text-sm font-medium text-text-primary transition-colors hover:text-text-secondary',
+              { 'nav-link-active': activeSection === getLinkTarget(link.href) },
+            ]"
             @click="handleNavClick($event, link.href)"
           >
             {{ link.label }}
@@ -96,7 +125,10 @@ function handleNavClick(event, href) {
         <li v-for="link in links" :key="link.href">
           <a
             :href="link.href"
-            class="block text-sm font-medium text-text-primary transition-colors hover:text-text-secondary"
+            :class="[
+              'nav-link block text-sm font-medium text-text-primary transition-colors hover:text-text-secondary',
+              { 'nav-link-active': activeSection === getLinkTarget(link.href) },
+            ]"
             @click="handleNavClick($event, link.href)"
           >
             {{ link.label }}

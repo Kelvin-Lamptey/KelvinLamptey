@@ -1,5 +1,27 @@
 <script setup>
+import { onMounted, ref } from "vue"
 import { Github, ExternalLink } from "lucide-vue-next"
+
+const card = ref(null)
+
+onMounted(() => {
+  if (!card.value || !("IntersectionObserver" in window)) {
+    card.value?.classList.add("is-visible")
+    return
+  }
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        card.value?.classList.add("is-visible")
+        observer.disconnect()
+      }
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -8%" },
+  )
+
+  observer.observe(card.value)
+})
 
 defineProps({
   title: String,
@@ -14,13 +36,14 @@ defineProps({
 
 <template>
   <article
-    class="flex flex-col rounded-xs bg-surface-muted shadow-sm ring-1 ring-black/5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
+    ref="card"
+    class="group reveal-on-scroll flex flex-col overflow-hidden rounded-xs bg-surface-muted shadow-sm ring-1 ring-black/5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
   >
     <img
       v-if="image"
       :src="image"
       :alt="title"
-      class="h-48 w-full rounded-t-xs object-cover"
+      class="h-48 w-full rounded-t-xs object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
     />
     <div class="flex flex-1 flex-col p-7">
     <h3 class="text-lg font-semibold text-text-secondary">
