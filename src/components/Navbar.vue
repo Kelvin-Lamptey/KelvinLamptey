@@ -7,6 +7,7 @@ const isMenuOpen = ref(false)
 const links = [
   { label: "Home", href: "/" },
   { label: "Projects", href: "/#projects" },
+  { label: "Tech Stacks", href: "/#tech-stacks" },
   { label: "About", href: "/#about" },
   { label: "Contact", href: "/#contact" },
 ]
@@ -27,9 +28,10 @@ function closeMenu() {
     <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
       <a
         href="/"
-        class="text-lg font-bold text-text-secondary transition-colors hover:text-text-inverse"
+        class="inline-flex items-center gap-2 text-lg font-bold text-text-secondary transition-colors hover:text-text-inverse"
         @click="closeMenu"
       >
+        <img src="/favicon.svg" alt="" aria-hidden="true" class="h-8 w-8" />
         Kelvin Lamptey
       </a>
       <button
