@@ -102,6 +102,15 @@ const iconBase = "https://cdn.simpleicons.org"
         >
           <img :src="`${iconBase}/whatsapp/4d5055`" alt="" aria-hidden="true" class="h-5 w-5" />
         </a>
+        <a
+          href="https://t.me/kelvinlamptey"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-text-primary transition-colors hover:text-text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse"
+          aria-label="Telegram"
+        >
+          <img :src="`${iconBase}/telegram/4d5055`" alt="" aria-hidden="true" class="h-5 w-5" />
+        </a>
       </div>
     </div>
   </footer>
