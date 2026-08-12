@@ -28,7 +28,7 @@ const iconBase = "https://cdn.simpleicons.org"
           class="text-text-primary transition-colors hover:text-text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse"
           aria-label="LinkedIn"
         >
-          <img :src="`${iconBase}/linkedin/4d5055`" alt="" aria-hidden="true" class="h-5 w-5" />
+          <img src="https://api.iconify.design/mdi/linkedin.svg?color=%234d5055" alt="" aria-hidden="true" class="h-5 w-5" />
         </a>
         <a
           href="https://x.com/kelvinolamptey"
