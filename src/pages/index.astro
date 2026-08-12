@@ -13,7 +13,8 @@ const techStackIcons: Record<string, string> = {
   Go: "go", Docker: "docker", "Vue.js": "vuedotjs", PostgreSQL: "postgresql", "Node.js": "nodedotjs",
   React: "react", "React Native": "react", Expo: "expo", TypeScript: "typescript", "Bun Workspaces": "bun",
   Express: "express", "Prisma ORM": "prisma", Processing: "processing", Java: "openjdk", Python: "python",
-  Django: "djangoproject", HTMX: "htmx", NestJS: "nestjs", "Azure Face": "microsoftazure", Supabase: "supabase", JavaScript: "javascript",
+  Django: "https://api.iconify.design/skill-icons/django.svg", HTMX: "htmx", NestJS: "nestjs", "Azure Face": "https://api.iconify.design/logos/microsoft-azure.svg", Supabase: "supabase", JavaScript: "javascript",
+  CSS: "https://api.iconify.design/skill-icons/css.svg", Processing: "https://api.iconify.design/logos/processing.svg",
 }
 const techStacks = [...new Set(projects.flatMap((project) => project.data.techStack ?? []))]
 const keywords = ["Kelvin N.O. Lamptey", "Kelvin Lamptey", "GCTU", "Ghana Communication Technology University", "Accra", "Ghana", "software engineer", "CTO", "systems engineer", "KENOL Tech", "Yango STEM Fellow", "cloud infrastructure", "DevOps", "SaaS", "full-stack development", "Vue.js", "Docker", "PostgreSQL", "African technology"]
@@ -96,7 +97,7 @@ const structuredData = [
         {techStacks.map((tech) => (
           <div class="flex min-h-24 items-center gap-4 rounded-xs border border-black/10 bg-surface-muted px-4 py-4 shadow-sm transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-md">
             {techStackIcons[tech] ? (
-              <img src={`https://cdn.simpleicons.org/${techStackIcons[tech]}/2259ec`} alt="" aria-hidden="true" class="h-8 w-8 shrink-0" />
+              <img src={techStackIcons[tech].startsWith("http") ? techStackIcons[tech] : `https://cdn.simpleicons.org/${techStackIcons[tech]}/2259ec`} alt="" aria-hidden="true" class="h-8 w-8 shrink-0" />
             ) : (
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-text-inverse/10 text-sm font-bold text-text-inverse" aria-hidden="true">{tech.charAt(0)}</span>
             )}
