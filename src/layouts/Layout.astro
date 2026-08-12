@@ -4,13 +4,31 @@ import "../styles/global.css"
 export interface Props {
   title?: string
   description?: string
+  socialTitle?: string
+  keywords?: string[]
+  image?: string
+  imageAlt?: string
+  type?: "website" | "article"
+  canonical?: string
+  structuredData?: Record<string, unknown> | Record<string, unknown>[]
 }
 
 const {
   title = "Kelvin N.O. Lamptey | CTO & Systems Engineer",
   description = "I build scalable, high-impact systems for African tech ecosystems — from cloud platforms and hosting infrastructure to educational tools that democratize learning.",
+  socialTitle = "Kelvin N.O. Lamptey",
+  keywords = [],
+  image = "/images/hero-typing.jpg",
+  imageAlt = "Kelvin N.O. Lamptey, software engineer and CTO",
+  type = "website",
+  canonical,
+  structuredData,
 } = Astro.props as Props
-const url = new URL(Astro.url)
+const site = Astro.site ?? new URL("https://kelvinlamptey.com")
+const url = canonical ?? new URL(Astro.url.pathname, site).href
+const imageUrl = new URL(image, site).href
+const imageDimensions = image === "/images/hero-typing.jpg" ? { width: 6240, height: 4160 } : undefined
+const jsonLd = structuredData ? JSON.stringify(structuredData) : undefined
 ---
 
 <html lang="en">
@@ -19,17 +37,26 @@ const url = new URL(Astro.url)
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {keywords.length > 0 && <meta name="keywords" content={keywords.join(", ")} />}
+    <link rel="canonical" href={url} />
 
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content={socialTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={type} />
     <meta property="og:url" content={url} />
-    <meta property="og:image" content="https://kelvinlamptey.com/og-image.png" />
+    <meta property="og:site_name" content="Kelvin N.O. Lamptey" />
+    <meta property="og:locale" content="en_GH" />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:alt" content={imageAlt} />
+    {imageDimensions && <meta property="og:image:width" content={String(imageDimensions.width)} />}
+    {imageDimensions && <meta property="og:image:height" content={String(imageDimensions.height)} />}
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
+    <meta name="twitter:title" content={socialTitle} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="https://kelvinlamptey.com/og-image.png" />
+    <meta name="twitter:image" content={imageUrl} />
+    <meta name="twitter:image:alt" content={imageAlt} />
+    {jsonLd && <script type="application/ld+json" set:html={jsonLd} />}
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

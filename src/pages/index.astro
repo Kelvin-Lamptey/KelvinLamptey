@@ -8,11 +8,18 @@ import { getCollection } from "astro:content"
 
 const projects = (await getCollection("projects"))
   .sort((a, b) => a.data.order - b.data.order)
+const keywords = ["Kelvin N.O. Lamptey", "Kelvin Lamptey", "GCTU", "Ghana Communication Technology University", "Accra", "Ghana", "software engineer", "CTO", "systems engineer", "KENOL Tech", "Yango STEM Fellow", "cloud infrastructure", "DevOps", "SaaS", "full-stack development", "Vue.js", "Docker", "PostgreSQL", "African technology"]
+const structuredData = [
+  { "@context": "https://schema.org", "@type": "WebSite", name: "Kelvin N.O. Lamptey", url: "https://kelvinlamptey.com/" },
+  { "@context": "https://schema.org", "@type": "Person", name: "Kelvin N.O. Lamptey", url: "https://kelvinlamptey.com/", jobTitle: "Software Engineer and CTO", address: { "@type": "PostalAddress", addressLocality: "Accra", addressCountry: "GH" }, alumniOf: { "@type": "CollegeOrUniversity", name: "Ghana Communication Technology University" }, worksFor: { "@type": "Organization", name: "KENOL Tech" }, sameAs: ["https://github.com/kelvin-lamptey", "https://linkedin.com/in/kelvin-lamptey", "https://twitter.com/kelvinolamptey", "https://instagram.com/kelvinodarteylamptey"] },
+]
 ---
 
 <Layout
   title="Kelvin N.O. Lamptey | CTO & Systems Engineer"
   description="I build scalable, high-impact systems for African tech ecosystems — from cloud platforms and hosting infrastructure to educational tools that democratize learning."
+  keywords={keywords}
+  structuredData={structuredData}
 >
   <Navbar client:load />
 
@@ -54,6 +61,7 @@ const projects = (await getCollection("projects"))
               description={p.data.description}
               techStack={p.data.techStack}
               image={p.data.image}
+              projectUrl={`/projects/${p.id}/`}
               githubUrl={p.data.githubUrl}
               liveUrl={p.data.liveUrl}
             />
