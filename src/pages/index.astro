@@ -24,48 +24,55 @@ const structuredData = [
   <Navbar client:load />
 
   <main>
-    <section id="home" class="mx-auto max-w-5xl px-6 pt-28 pb-20 sm:pt-36 sm:pb-28">
-      <div class="flex flex-col items-center gap-10 sm:flex-row sm:items-start">
-        <img
-          src="/images/hero-typing.jpg"
-          alt="Kelvin N.O. Lamptey"
-          class="h-48 w-48 rounded-xs object-cover shadow-md sm:h-56 sm:w-56"
-        />
-        <div>
-          <h1 class="text-2xl font-bold text-text-secondary sm:text-3xl">
-            Kelvin N.O. Lamptey
-          </h1>
-          <p class="mt-3 text-md font-semibold text-text-inverse">
-            Software Engineer, Yango STEM Fellow &amp; CTO @ KENOL Tech
-          </p>
-          <p class="mt-5 max-w-2xl text-sm leading-relaxed text-text-primary">
-            I build scalable, high-impact systems for African tech ecosystems, from
-            cloud platforms and hosting infrastructure to educational tools that
-            democratize learning. My work bridges full-stack engineering, DevOps,
-            and product strategy to ship production-grade solutions that solve real
-            problems.
-          </p>
-          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
-              href="https://www.linkedin.com/in/kelvin-lamptey"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center justify-center gap-3 rounded-xs bg-text-inverse px-6 py-3 text-sm font-bold text-surface-muted shadow-sm transition-colors hover:bg-surface-raised focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse"
-            >
-              <img src="https://api.iconify.design/mdi/linkedin.svg?color=%23ffffff" alt="" aria-hidden="true" class="h-5 w-5" />
-              Connect with me on LinkedIn
-            </a>
-            <a
-              href="https://wa.me/kelvinlamptey"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="group inline-flex items-center justify-center gap-3 rounded-xs border-2 border-text-inverse px-6 py-[11px] text-sm font-bold text-text-inverse transition-colors hover:bg-text-inverse hover:text-surface-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse"
-            >
-              <img src="https://cdn.simpleicons.org/whatsapp/2259ec" alt="" aria-hidden="true" class="h-5 w-5 group-hover:brightness-0 group-hover:invert" />
-              Chat with me on WhatsApp
-            </a>
-          </div>
+    <section id="home" class="mx-auto grid min-h-[calc(100svh-73px)] max-w-6xl items-center gap-12 px-6 py-14 sm:py-20 lg:grid-cols-[minmax(0,0.9fr)_minmax(360px,1.1fr)] lg:gap-16 lg:py-16">
+      <div class="order-2 lg:order-1">
+        <p class="text-sm font-bold uppercase tracking-[0.18em] text-text-inverse">Software engineer · Accra, Ghana</p>
+        <h1 class="mt-5 max-w-3xl text-4xl font-bold leading-[1.05] tracking-[-0.03em] text-text-secondary sm:text-5xl lg:text-6xl">
+          Kelvin N.O. Lamptey
+        </h1>
+        <p class="mt-6 max-w-xl text-lg font-semibold leading-snug text-text-inverse sm:text-xl">
+          Yango STEM Fellow &amp; CTO @ KENOL Tech
+        </p>
+        <p class="mt-6 max-w-xl text-base leading-relaxed text-text-primary sm:text-lg">
+          I build scalable, high-impact systems for African tech ecosystems, from
+          cloud platforms and hosting infrastructure to educational tools that
+          democratize learning. My work bridges full-stack engineering, DevOps,
+          and product strategy to ship production-grade solutions that solve real
+          problems.
+        </p>
+        <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+          <a
+            href="https://www.linkedin.com/in/kelvin-lamptey"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-3 rounded-xs bg-text-inverse px-6 py-3 text-sm font-bold text-surface-muted shadow-sm transition-colors hover:bg-surface-raised focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse"
+          >
+            <img src="https://api.iconify.design/mdi/linkedin.svg?color=%23ffffff" alt="" aria-hidden="true" class="h-5 w-5" />
+            Connect with me on LinkedIn
+          </a>
+          <a
+            href="https://wa.me/kelvinlamptey"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group inline-flex items-center justify-center gap-3 rounded-xs border-2 border-text-inverse px-6 py-[11px] text-sm font-bold text-text-inverse transition-colors hover:bg-text-inverse hover:text-surface-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse"
+          >
+            <img src="https://cdn.simpleicons.org/whatsapp/2259ec" alt="" aria-hidden="true" class="h-5 w-5 group-hover:brightness-0 group-hover:invert" />
+            Chat with me on WhatsApp
+          </a>
         </div>
+      </div>
+      <div class="relative order-1 lg:order-2">
+        <div class="absolute -inset-3 -z-10 translate-x-3 translate-y-3 rounded-xs bg-text-inverse/10 sm:-inset-4 sm:translate-x-5 sm:translate-y-5" aria-hidden="true"></div>
+        <figure class="relative overflow-hidden rounded-xs bg-black/[.04] shadow-xl">
+          <img
+            src="/images/hero-typing.jpg"
+            alt="Kelvin N.O. Lamptey working at a computer"
+            class="h-[min(78vw,620px)] w-full object-cover object-[center_42%] sm:h-[min(70vw,680px)] lg:h-[min(78vh,680px)]"
+          />
+          <figcaption class="absolute bottom-0 left-0 right-0 bg-text-secondary/90 px-5 py-4 text-sm font-semibold text-surface-muted backdrop-blur-sm">
+            Building useful technology for Africa
+          </figcaption>
+        </figure>
       </div>
     </section>
 
