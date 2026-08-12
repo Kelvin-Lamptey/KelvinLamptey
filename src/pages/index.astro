@@ -6,6 +6,12 @@ import ProjectCard from "../components/ProjectCard.vue"
 import ContactForm from "../components/ContactForm.vue"
 import { getCollection } from "astro:content"
 import { Image } from "astro:assets"
+import heroImage from "../assets/hero-typing.jpg"
+import yangoAwardImage from "../assets/yango-award.jpg"
+import eventImage from "../assets/event-google-accra.jpg"
+import formalStandingImage from "../assets/formal-standing.jpg"
+import linkedinWhiteIcon from "../assets/linkedin-white.svg"
+import whatsappBlueIcon from "../assets/whatsapp-blue.svg"
 
 const projects = (await getCollection("projects"))
   .sort((a, b) => a.data.order - b.data.order)
@@ -57,7 +63,7 @@ const structuredData = [
             rel="noopener noreferrer"
             class="inline-flex items-center justify-center gap-3 rounded-xs bg-text-inverse px-6 py-3 text-sm font-bold text-surface-muted shadow-sm transition-colors hover:bg-surface-raised focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse"
           >
-            <Image src="https://api.iconify.design/mdi/linkedin.svg?color=%23ffffff" alt="" aria-hidden="true" width={20} height={20} />
+            <Image src={linkedinWhiteIcon} alt="" aria-hidden="true" width={20} height={20} />
             Connect with me on LinkedIn
           </a>
           <a
@@ -66,7 +72,7 @@ const structuredData = [
             rel="noopener noreferrer"
             class="group inline-flex items-center justify-center gap-3 rounded-xs border-2 border-text-inverse px-6 py-[11px] text-sm font-bold text-text-inverse transition-colors hover:bg-text-inverse hover:text-surface-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse"
           >
-            <Image src="https://cdn.simpleicons.org/whatsapp/2259ec" alt="" aria-hidden="true" width={20} height={20} class="group-hover:brightness-0 group-hover:invert" />
+            <Image src={whatsappBlueIcon} alt="" aria-hidden="true" width={20} height={20} class="group-hover:brightness-0 group-hover:invert" />
             Chat with me on WhatsApp
           </a>
         </div>
@@ -75,7 +81,7 @@ const structuredData = [
         <div class="absolute -inset-3 -z-10 translate-x-3 translate-y-3 rounded-xs bg-text-inverse/10 sm:-inset-4 sm:translate-x-5 sm:translate-y-5" aria-hidden="true"></div>
         <figure class="relative overflow-hidden rounded-xs bg-black/[.04] shadow-xl">
           <Image
-            src="/images/hero-typing.jpg"
+            src={heroImage}
             alt="Kelvin N.O. Lamptey working at a computer"
             width={1200}
             height={1400}
@@ -153,7 +159,7 @@ const structuredData = [
       </p>
       <div class="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-3">
         <Image
-          src="/images/yango-award.jpg"
+          src={yangoAwardImage}
           alt="Receiving award at Yango STEM Fellowship"
           width={800}
           height={600}
@@ -161,7 +167,7 @@ const structuredData = [
           class="h-56 w-full rounded-xs object-cover shadow-sm"
         />
         <Image
-          src="/images/event-google-accra.jpg"
+          src={eventImage}
           alt="Speaking at a gathering"
           width={800}
           height={600}
@@ -169,7 +175,7 @@ const structuredData = [
           class="h-56 w-full rounded-xs object-cover shadow-sm"
         />
         <Image
-          src="/images/formal-standing.jpg"
+          src={formalStandingImage}
           alt="Formal professional portrait"
           width={800}
           height={600}
