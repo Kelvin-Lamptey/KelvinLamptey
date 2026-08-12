@@ -1,5 +1,5 @@
 <script setup>
-import { Facebook, Github, Instagram, Linkedin, MessageCircle, Music2, Twitter, Youtube } from "lucide-vue-next"
+const iconBase = "https://cdn.simpleicons.org"
 </script>
 
 <template>
@@ -19,7 +19,7 @@ import { Facebook, Github, Instagram, Linkedin, MessageCircle, Music2, Twitter, 
           class="text-text-primary transition-colors hover:text-text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse"
           aria-label="GitHub"
         >
-          <Github :size="20" />
+          <img :src="`${iconBase}/github/4d5055`" alt="" aria-hidden="true" class="h-5 w-5" />
         </a>
         <a
           href="https://linkedin.com/in/kelvin-lamptey"
@@ -28,7 +28,7 @@ import { Facebook, Github, Instagram, Linkedin, MessageCircle, Music2, Twitter, 
           class="text-text-primary transition-colors hover:text-text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse"
           aria-label="LinkedIn"
         >
-          <Linkedin :size="20" />
+          <img :src="`${iconBase}/linkedin/4d5055`" alt="" aria-hidden="true" class="h-5 w-5" />
         </a>
         <a
           href="https://x.com/kelvinolamptey"
@@ -37,7 +37,7 @@ import { Facebook, Github, Instagram, Linkedin, MessageCircle, Music2, Twitter, 
           class="text-text-primary transition-colors hover:text-text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse"
           aria-label="X (Twitter)"
         >
-          <Twitter :size="20" />
+          <img :src="`${iconBase}/x/4d5055`" alt="" aria-hidden="true" class="h-5 w-5" />
         </a>
         <a
           href="https://instagram.com/kelvinodarteylamptey"
@@ -46,7 +46,7 @@ import { Facebook, Github, Instagram, Linkedin, MessageCircle, Music2, Twitter, 
           class="text-text-primary transition-colors hover:text-text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse"
           aria-label="Instagram"
         >
-          <Instagram :size="20" />
+          <img :src="`${iconBase}/instagram/4d5055`" alt="" aria-hidden="true" class="h-5 w-5" />
         </a>
         <a
           href="https://www.youtube.com/@kelvin-lamptey"
@@ -55,7 +55,7 @@ import { Facebook, Github, Instagram, Linkedin, MessageCircle, Music2, Twitter, 
           class="text-text-primary transition-colors hover:text-text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse"
           aria-label="YouTube"
         >
-          <Youtube :size="20" />
+          <img :src="`${iconBase}/youtube/4d5055`" alt="" aria-hidden="true" class="h-5 w-5" />
         </a>
         <a
           href="https://www.trendshub.live/kelvinlamptey"
@@ -73,7 +73,7 @@ import { Facebook, Github, Instagram, Linkedin, MessageCircle, Music2, Twitter, 
           class="text-text-primary transition-colors hover:text-text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse"
           aria-label="TikTok"
         >
-          <Music2 :size="20" />
+          <img :src="`${iconBase}/tiktok/4d5055`" alt="" aria-hidden="true" class="h-5 w-5" />
         </a>
         <a
           href="https://www.facebook.com/kelvinniilamptey7"
@@ -82,7 +82,7 @@ import { Facebook, Github, Instagram, Linkedin, MessageCircle, Music2, Twitter, 
           class="text-text-primary transition-colors hover:text-text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse"
           aria-label="Facebook"
         >
-          <Facebook :size="20" />
+          <img :src="`${iconBase}/facebook/4d5055`" alt="" aria-hidden="true" class="h-5 w-5" />
         </a>
         <a
           href="https://www.threads.net/@kelvinodarteylamptey"
@@ -91,7 +91,7 @@ import { Facebook, Github, Instagram, Linkedin, MessageCircle, Music2, Twitter, 
           class="text-sm font-bold text-text-primary transition-colors hover:text-text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse"
           aria-label="Threads"
         >
-          @
+          <span class="text-base font-bold leading-none" aria-hidden="true">T</span>
         </a>
         <a
           href="https://wa.me/kelvinlamptey"
@@ -100,7 +100,7 @@ import { Facebook, Github, Instagram, Linkedin, MessageCircle, Music2, Twitter, 
           class="text-text-primary transition-colors hover:text-text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse"
           aria-label="WhatsApp"
         >
-          <MessageCircle :size="20" />
+          <img :src="`${iconBase}/whatsapp/4d5055`" alt="" aria-hidden="true" class="h-5 w-5" />
         </a>
       </div>
     </div>
