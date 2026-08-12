@@ -6,6 +6,7 @@ defineProps({
   description: String,
   techStack: Array,
   image: String,
+  projectUrl: String,
   githubUrl: String,
   liveUrl: String,
 })
@@ -23,7 +24,8 @@ defineProps({
     />
     <div class="flex flex-1 flex-col p-7">
     <h3 class="text-lg font-semibold text-text-secondary">
-      {{ title }}
+      <a v-if="projectUrl" :href="projectUrl" class="transition-colors hover:text-text-inverse focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse">{{ title }}</a>
+      <template v-else>{{ title }}</template>
     </h3>
     <p class="mt-3 flex-1 text-sm leading-relaxed text-text-primary">
       {{ description }}
@@ -38,6 +40,7 @@ defineProps({
       </span>
     </div>
     <div v-if="githubUrl || liveUrl" class="mt-6 flex items-center gap-4">
+      <a v-if="projectUrl" :href="projectUrl" class="inline-flex items-center gap-2 text-sm font-medium text-text-secondary transition-colors hover:text-text-inverse focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse">Case Study</a>
       <a
         v-if="githubUrl"
         :href="githubUrl"

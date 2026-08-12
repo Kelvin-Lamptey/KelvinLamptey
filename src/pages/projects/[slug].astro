@@ -1,0 +1,78 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content"
+import Layout from "../../layouts/Layout.astro"
+import Navbar from "../../components/Navbar.vue"
+import Footer from "../../components/Footer.vue"
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects")
+  return projects.map((project) => ({ params: { slug: project.id }, props: { project } }))
+}
+
+interface Props {
+  project: CollectionEntry<"projects">
+}
+
+const { project } = Astro.props as Props
+const { data } = project
+const title = `${data.title} Case Study | Kelvin N.O. Lamptey`
+const description = `${data.description} Explore the ${data.title} project by Kelvin N.O. Lamptey.`
+const keywords = [data.title, "Kelvin N.O. Lamptey", "Kelvin Lamptey", "software engineering", "Accra", "Ghana", ...(data.techStack ?? [])]
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  name: data.title,
+  description: data.description,
+  url: `https://kelvinlamptey.com/projects/${project.id}/`,
+  author: { "@type": "Person", name: "Kelvin N.O. Lamptey", url: "https://kelvinlamptey.com/" },
+  keywords: keywords.join(", "),
+  sameAs: [data.githubUrl, data.liveUrl].filter(Boolean),
+}
+---
+
+<Layout {title} {description} socialTitle={`${data.title} | Kelvin N.O. Lamptey`} {keywords} type="article" structuredData={structuredData}>
+  <Navbar client:load />
+  <main class="mx-auto max-w-5xl px-6 py-16 sm:py-24">
+    <a href="/#projects" class="text-sm font-semibold text-text-inverse transition-colors hover:text-surface-raised focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse">← All projects</a>
+    <article class="mt-8 max-w-3xl">
+      <p class="text-sm font-semibold uppercase tracking-[0.16em] text-text-inverse">Case Study</p>
+      <h1 class="mt-3 text-3xl font-bold text-text-secondary sm:text-4xl">{data.title}</h1>
+      <p class="mt-6 text-lg leading-relaxed text-text-primary">{data.description}</p>
+
+      {data.status === "unavailable" && (
+        <p class="mt-8 rounded-xs border border-black/10 bg-black/[.02] px-5 py-4 text-sm leading-relaxed text-text-primary">
+          The public demo is currently unavailable. This case study is retained as a record of the project.
+        </p>
+      )}
+
+      <div class="mt-12 grid gap-10 sm:grid-cols-2">
+        {data.challenge && <section><h2 class="text-xl font-bold text-text-secondary">Challenge</h2><p class="mt-3 text-sm leading-relaxed text-text-primary">{data.challenge}</p></section>}
+        {data.solution && <section><h2 class="text-xl font-bold text-text-secondary">Solution</h2><p class="mt-3 text-sm leading-relaxed text-text-primary">{data.solution}</p></section>}
+      </div>
+
+      {data.capabilities && data.capabilities.length > 0 && (
+        <section class="mt-12">
+          <h2 class="text-xl font-bold text-text-secondary">Key Capabilities</h2>
+          <ul class="mt-4 grid gap-3 text-sm leading-relaxed text-text-primary sm:grid-cols-2">
+            {data.capabilities.map((capability) => <li class="border-l-2 border-text-inverse pl-3">{capability}</li>)}
+          </ul>
+        </section>
+      )}
+
+      {data.techStack && data.techStack.length > 0 && (
+        <section class="mt-12">
+          <h2 class="text-xl font-bold text-text-secondary">Technology</h2>
+          <div class="mt-4 flex flex-wrap gap-2">
+            {data.techStack.map((tech) => <span class="rounded-xs bg-text-inverse/10 px-3 py-1 text-sm font-medium text-text-inverse">{tech}</span>)}
+          </div>
+        </section>
+      )}
+
+      <div class="mt-12 flex flex-wrap gap-4">
+        {data.githubUrl && <a href={data.githubUrl} target="_blank" rel="noopener noreferrer" class="rounded-xs border border-text-inverse px-5 py-2.5 text-sm font-semibold text-text-inverse transition-colors hover:bg-text-inverse hover:text-surface-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse">View source</a>}
+        {data.liveUrl && data.status !== "unavailable" && <a href={data.liveUrl} target="_blank" rel="noopener noreferrer" class="rounded-xs bg-text-inverse px-5 py-2.5 text-sm font-semibold text-surface-muted transition-colors hover:bg-surface-raised focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse">Visit live project</a>}
+      </div>
+    </article>
+  </main>
+  <Footer />
+</Layout>

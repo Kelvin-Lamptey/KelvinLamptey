@@ -13,6 +13,7 @@ import { Github, Linkedin, Twitter, Instagram } from "lucide-vue-next"
         &copy; 2026 Kelvin Nii Odartey Lamptey
       </p>
       <div class="flex items-center gap-5">
+        <a href="/sitemap/" class="text-sm font-medium text-text-primary transition-colors hover:text-text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse">Sitemap</a>
         <a
           href="https://github.com/kelvin-lamptey"
           target="_blank"
