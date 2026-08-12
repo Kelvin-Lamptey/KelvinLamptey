@@ -10,5 +10,5 @@ capabilities:
   - Grading anomaly resolution
   - Class telemetry
 featured: false
-order: 7
+order: 2
 ---
