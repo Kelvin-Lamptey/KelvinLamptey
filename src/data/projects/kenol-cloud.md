@@ -14,5 +14,5 @@ capabilities:
   - Domain registration
   - Infrastructure scaling
 featured: true
-order: 1
+order: 2
 ---

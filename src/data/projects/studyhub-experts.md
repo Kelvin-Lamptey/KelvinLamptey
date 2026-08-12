@@ -15,5 +15,5 @@ capabilities:
   - Tutor-to-student marketplace
   - Algorithm visualization
 featured: true
-order: 2
+order: 7
 ---
