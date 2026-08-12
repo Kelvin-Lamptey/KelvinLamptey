@@ -11,7 +11,7 @@
       <feDropShadow dx="0" dy="2" stdDeviation="1.2" flood-color="#0b36a8" flood-opacity="0.42" />
     </filter>
   </defs>
-  <rect x="4" y="4" width="56" height="56" rx="6" fill="#ffffff" stroke="#dce5ff" stroke-width="1.5" />
-  <text x="32" y="47" text-anchor="middle" fill="#0b36a8" opacity="0.32" transform="translate(0 1.5)" font-family="'Open Sans', Arial, sans-serif" font-size="43" font-weight="700" letter-spacing="-4">KL</text>
-  <text x="32" y="47" text-anchor="middle" fill="url(#ink)" filter="url(#textDepth)" font-family="'Open Sans', Arial, sans-serif" font-size="43" font-weight="700" letter-spacing="-4">KL</text>
+  <rect x="4" y="4" width="56" height="56" rx="6" fill="#ffffff" stroke="#dce5ff" stroke-width="0.5" />
+  <text x="32" y="47" text-anchor="middle" fill="#0b36a8" opacity="0.32" transform="translate(0 1.5)" font-family="'Open Sans', Arial, sans-serif" font-size="43" font-weight="700" letter-spacing="-1">KL</text>
+  <text x="32" y="47" text-anchor="middle" fill="url(#ink)" filter="url(#textDepth)" font-family="'Open Sans', Arial, sans-serif" font-size="43" font-weight="700" letter-spacing="-1">KL</text>
 </svg>
