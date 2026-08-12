@@ -8,6 +8,14 @@ import { getCollection } from "astro:content"
 
 const projects = (await getCollection("projects"))
   .sort((a, b) => a.data.order - b.data.order)
+const techStackIcons: Record<string, string> = {
+  PHP: "php", WordPress: "wordpress", WooCommerce: "woocommerce", HTML: "html5", CSS: "css3",
+  Go: "go", Docker: "docker", "Vue.js": "vuedotjs", PostgreSQL: "postgresql", "Node.js": "nodedotjs",
+  React: "react", "React Native": "react", Expo: "expo", TypeScript: "typescript", "Bun Workspaces": "bun",
+  Express: "express", "Prisma ORM": "prisma", Processing: "processing", Java: "openjdk", Python: "python",
+  Django: "djangoproject", HTMX: "htmx", NestJS: "nestjs", "Azure Face": "microsoftazure", Supabase: "supabase", JavaScript: "javascript",
+}
+const techStacks = [...new Set(projects.flatMap((project) => project.data.techStack ?? []))]
 const keywords = ["Kelvin N.O. Lamptey", "Kelvin Lamptey", "GCTU", "Ghana Communication Technology University", "Accra", "Ghana", "software engineer", "CTO", "systems engineer", "KENOL Tech", "Yango STEM Fellow", "cloud infrastructure", "DevOps", "SaaS", "full-stack development", "Vue.js", "Docker", "PostgreSQL", "African technology"]
 const structuredData = [
   { "@context": "https://schema.org", "@type": "WebSite", name: "Kelvin N.O. Lamptey", url: "https://kelvinlamptey.com/" },
@@ -73,6 +81,28 @@ const structuredData = [
             Building useful technology for Africa
           </figcaption>
         </figure>
+      </div>
+    </section>
+
+    <section id="tech-stacks" class="mx-auto max-w-6xl px-6 py-20 sm:py-24">
+      <div class="max-w-2xl">
+        <p class="text-sm font-bold uppercase tracking-[0.18em] text-text-inverse">Tools of the trade</p>
+        <h2 class="mt-3 text-2xl font-bold text-text-secondary sm:text-3xl">Tech Stacks</h2>
+        <p class="mt-4 text-sm leading-relaxed text-text-primary sm:text-base">
+          A cross-project view of the languages, frameworks, platforms, and infrastructure I use to build production systems.
+        </p>
+      </div>
+      <div class="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+        {techStacks.map((tech) => (
+          <div class="flex min-h-24 items-center gap-4 rounded-xs border border-black/10 bg-surface-muted px-4 py-4 shadow-sm transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-md">
+            {techStackIcons[tech] ? (
+              <img src={`https://cdn.simpleicons.org/${techStackIcons[tech]}/2259ec`} alt="" aria-hidden="true" class="h-8 w-8 shrink-0" />
+            ) : (
+              <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-text-inverse/10 text-sm font-bold text-text-inverse" aria-hidden="true">{tech.charAt(0)}</span>
+            )}
+            <span class="text-sm font-semibold leading-tight text-text-secondary">{tech}</span>
+          </div>
+        ))}
       </div>
     </section>
 
