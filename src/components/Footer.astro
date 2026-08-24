@@ -1,6 +1,4 @@
 ---
-import { Image } from "astro:assets"
-
 const icons = [
   ["GitHub", "https://cdn.simpleicons.org/github/4d5055", "https://github.com/kelvin-lamptey"],
   ["LinkedIn", "https://api.iconify.design/mdi/linkedin.svg?color=%234d5055", "https://linkedin.com/in/kelvin-lamptey"],
@@ -21,7 +19,7 @@ const icons = [
       <a href="/sitemap/" class="text-sm font-medium text-text-primary transition-colors hover:text-text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse">Sitemap</a>
       {icons.map(([label, src, href]) => (
         <a href={href} target="_blank" rel="noopener noreferrer" class="text-text-primary transition-colors hover:text-text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse" aria-label={label}>
-          <Image src={src} alt="" aria-hidden="true" width={20} height={20} />
+          <img src={src} alt="" aria-hidden="true" width="20" height="20" loading="lazy" decoding="async" />
         </a>
       ))}
       <a href="https://www.trendshub.live/kelvinlamptey" target="_blank" rel="noopener noreferrer" class="text-sm font-bold text-text-primary transition-colors hover:text-text-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse" aria-label="Trendshub">T</a>
